@@ -10,17 +10,17 @@
       <h1>King Adoption Clinic</h1>
     </div>
     <div class="adopt">
-      <router-link to="/adopt">Adopt Animal</router-link>
+      <router-link to="/adopt" class="router-link">Adopt Animal</router-link>
     </div>
     <div class="add">
-      <router-link to="/add">Add Animal</router-link>
+      <router-link to="/add" class="router-link">Add/Edit Animal</router-link>
     </div>
   </div>
   <div class="content">
     <router-view />
   </div>
   <div class="footer">
-    <!-- <a href="https://github.com/BYUCS260/museum-BriK1330">Github</a> -->
+    <a href="https://github.com/BriK1330/Adoption-cp4">Github</a>
   </div>
 </div>
 </template>
@@ -48,7 +48,7 @@ body {
   align-content: center;
 }
 
-.header router-link {
+.router-link {
   color: #bf9e08;
 }
 
@@ -93,7 +93,7 @@ body {
 
 .footer a {
   align-items:flex-end;
-  color: #000;
+  color: #bf9e08;
 }
 
 h1 {

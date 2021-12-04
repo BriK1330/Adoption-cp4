@@ -1,12 +1,11 @@
 <template>
   <div class="adding">
   <div class="heading">
-    <div class="circle">1</div>
     <h2>Adopt an Animal</h2>
   </div>
   <div class="adopt">
     <div class="form">
-      <input v-model="findAnimal" placeholder="Search">
+      <input v-model="findName" placeholder="Search">
       <div class="suggestions" v-if="suggestions.length > 0">
         <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectAnimal(s)">{{s.name}}
         </div>
@@ -83,7 +82,7 @@ export default {
         console.log(error);
       }
     },
-    selectAnimals(animal) {
+    selectAnimal(animal) {
       this.findName = "";
       this.findAnimal = animal;
     },
@@ -96,20 +95,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
-    async editAnimal(animal) {
-      try {
-        await axios.put("/api/animals/" + animal._id, {
-          name: this.findAnimal.name,
-          description: this.findAnimal.description
-        });
-        this.findAnimal = null;
-        this.getAnimals();
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
-    },
+    }
   }
 }
 </script>
@@ -129,6 +115,7 @@ export default {
 .heading h2 {
   margin-top: 8px;
   margin-left: 10px;
+  padding: 5px;
 }
 
 .adding,

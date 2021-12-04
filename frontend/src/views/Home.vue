@@ -4,7 +4,7 @@
       <div class="image" v-for="animal in animals" :key="animal.id">
         <h2>{{animal.name}}</h2>
         <img :src="animal.path" />
-        <p><em>{{animal.description}}</em>{{animal.description}}</p>
+        <p><em>{{animal.species}}</em>- {{animal.description}}</p>
       </div>
     </section>
   </div>
@@ -44,6 +44,7 @@ export default {
 <style scoped>
 .image h2 {
   font-style: italic;
+  font-size: large;
 }
 
 /* Masonry */

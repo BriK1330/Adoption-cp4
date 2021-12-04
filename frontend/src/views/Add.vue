@@ -1,7 +1,6 @@
 <template>
   <div class="adding">
   <div class="heading">
-    <div class="circle">1</div>
     <h2>Add an Animal</h2>
   </div>
   <div class="add">
@@ -21,12 +20,11 @@
     </div>
   </div>
   <div class="heading">
-    <div class="circle">2</div>
     <h2>Edit an Animal</h2>
   </div>
   <div class="edit">
     <div class="form">
-      <input v-model="findAnimal" placeholder="Search">
+      <input v-model="findName" placeholder="Search">
       <div class="suggestions" v-if="suggestions.length > 0">
         <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectAnimal(s)">{{s.name}}
         </div>
@@ -42,7 +40,6 @@
       <textarea v-model="findAnimal.description"></textarea>
     </div>
     <div class="actions" v-if="findAnimal">
-      <button @click="deleteAnimal(findAnimal)">Delete</button>
       <button @click="editAnimal(findAnimal)">Edit</button>
     </div>
   </div>
@@ -105,7 +102,7 @@ export default {
         console.log(error);
       }
     },
-    selectAnimals(animal) {
+    selectAnimal(animal) {
       this.findName = "";
       this.findAnimal = animal;
     },
@@ -123,6 +120,7 @@ export default {
       try {
         await axios.put("/api/animals/" + animal._id, {
           name: this.findAnimal.name,
+          species: this.findAnimal.species,
           description: this.findAnimal.description
         });
         this.findAnimal = null;
@@ -151,6 +149,7 @@ export default {
 .heading h2 {
   margin-top: 8px;
   margin-left: 10px;
+  padding: 5px;
 }
 
 .adding,

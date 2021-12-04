@@ -59,7 +59,7 @@ app.post('/api/animals', async (req, res) => {
 
 app.get('/api/animals', async (req, res) => {
   try {
-    let animals = await animal.find();
+    let animals = await Animal.find();
     res.send(animals);
   } catch (error) {
     console.log(error);
